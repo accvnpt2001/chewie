@@ -41,12 +41,7 @@ class PlayerWithControls extends StatelessWidget {
             maxScale: chewieController.maxScale,
             panEnabled: chewieController.zoomAndPan,
             scaleEnabled: chewieController.zoomAndPan,
-            child: Center(
-              child: AspectRatio(
-                aspectRatio: chewieController.aspectRatio ?? chewieController.videoPlayerController.value.aspectRatio,
-                child: VideoPlayer(chewieController.videoPlayerController),
-              ),
-            ),
+            child: VideoPlayer(chewieController.videoPlayerController),
           ),
           if (chewieController.overlay != null) chewieController.overlay!,
           if (Theme.of(context).platform != TargetPlatform.iOS)
@@ -85,10 +80,7 @@ class PlayerWithControls extends StatelessWidget {
       child: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: AspectRatio(
-          aspectRatio: calculateAspectRatio(context),
-          child: buildPlayerWithControls(chewieController, context),
-        ),
+        child: buildPlayerWithControls(chewieController, context),
       ),
     );
   }
